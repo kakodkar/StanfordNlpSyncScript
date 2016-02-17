@@ -1,0 +1,31 @@
+This is primarily for web archives
+You need to include the war plugin so that you may exclude the models jar while packaging
+But while locally testing it is available
+...
+    <build>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <packagingExcludes>WEB-INF/lib/stanford-corenlp-3.4.1-models.jar</packagingExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+...   
+Obviously these dependencies are important
+...   
+    <dependencies>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>3.4.1</version>
+            <classifier>models</classifier>
+        </dependency>
+    </dependencies>
+...    
